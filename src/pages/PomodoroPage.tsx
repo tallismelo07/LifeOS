@@ -29,8 +29,8 @@ export function PomodoroPage() {
 
   return (
     <div className="space-y-8">
-      <div className="flex items-center justify-between">
-        <PageTitle>Foco</PageTitle>
+      <div className="flex items-center font-extrabold justify-between">
+        <PageTitle>Foco - Pomodoro</PageTitle>
         <button
           onClick={() => setShowSettings(!showSettings)}
           className="text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors p-1"
@@ -51,14 +51,14 @@ export function PomodoroPage() {
               ['cyclesBeforeLong',  'Ciclos p/ pausa longa'],
             ] as const).map(([k, l]) => (
               <div key={k}>
-                <label className="block text-[10px] uppercase tracking-widest text-neutral-400 dark:text-neutral-600 font-semibold mb-1.5">
+                <label className="block text-[10px] uppercase tracking-widest text-neutral-400 dark:text-neutral-600  mb-1.5">
                   {l}
                 </label>
                 <input
                   type="number" min={1} max={k === 'cyclesBeforeLong' ? 10 : 99}
                   value={localSettings[k]}
                   onChange={(e) => setLocalSettings({ ...localSettings, [k]: parseInt(e.target.value) || 1 })}
-                  className="w-full bg-transparent border-b border-neutral-200 dark:border-neutral-800 py-2 text-sm focus:outline-none focus:border-neutral-500 transition-colors text-center tabular-nums"
+                  className="w-full bg-transparent border-b  border-neutral-200 dark:border-neutral-800 py-2 text-sm focus:outline-none focus:border-neutral-500 transition-colors text-center tabular-nums"
                 />
               </div>
             ))}
@@ -89,7 +89,7 @@ export function PomodoroPage() {
 
         {/* Big timer */}
         <div className="py-12">
-          <p className="text-[88px] sm:text-[110px] font-light tabular-nums tracking-tight leading-none text-[#111] dark:text-[#F0F0F0]">
+          <p className="text-[88px] sm:text-[110px] tabular-nums tracking-tight leading-none text-[#111] font-black dark:text-[#F0F0F0]">
             {pomo.display}
           </p>
           <p className="text-sm text-neutral-400 dark:text-neutral-600 mt-3">
